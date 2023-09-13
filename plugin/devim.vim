@@ -22,12 +22,13 @@ function! GermanGenderHighlightCurrentWord()
   let gender = b:german_gender_mappings[expand("<cword>")]
 
   if gender == 'm'
-    let b:german_gender_current_highlight = matchaddpos("german_gender_m", [[lineno, wordbegin, wordend-wordbegin]])
+    let matchgrp = "german_gender_m"
   elseif gender == 'f'
-    let b:german_gender_current_highlight = matchaddpos("german_gender_f", [[lineno, wordbegin, wordend-wordbegin]])
+    let matchgrp = "german_gender_f"
   else
-    let b:german_gender_current_highlight = matchaddpos("german_gender_n", [[lineno, wordbegin, wordend-wordbegin]])
+    let matchgrp = "german_gender_n"
   endif
+  let b:german_gender_current_highlight = matchaddpos(matchgrp, [[lineno, wordbegin, wordend-wordbegin]])
 endfunction
 
 function! GermanGenderSetOrDeleteHighLight()
