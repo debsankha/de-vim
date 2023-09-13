@@ -12,10 +12,9 @@ if __name__ == '__main__':
     german_word_regex = re.compile(r"==\s+\b(.*)\b\s+\(\{\{Sprache\|Deutsch\}\}\)\s+==\n===\s+\{\{Wortart\|Substantiv.*?\}\},\s+\{\{(m|f|n|mf|fm)\}\}.*")
     word_and_genders = re.findall(german_word_regex, words)
 
-    with open(Path(OUTFILE).expanduser()
-outfile, 'w', newline='') as csvfile:
+    with open(Path(OUTFILE).expanduser(), 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         for w,g in word_and_genders:
             if not (',' in w or ' ' in w):
                 writer.writerow([w,g])
-    print(f"Wrote gender mappings to {outfile}")
+    print(f"Wrote gender mappings to {OUTFILE}")
