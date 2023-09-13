@@ -21,7 +21,11 @@ This should create a csv file with the noun -> gender mappings:
 
 Using the plugin
 ----------------
-`<leader>g` will highlight the current word under the cursor.
+`<leader>g` will highlight the current word under the cursor. Default
+highlighting scheme:
+* male: red
+* female: blue
+* neutral: grey
 
 Customizing
 -----------
