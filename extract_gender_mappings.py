@@ -9,7 +9,7 @@ if __name__ == '__main__':
     with open("all_words_grepd.txt", 'r') as f:
         words = f.read()
 
-    german_word_regex = re.compile(r"==\s+\b(.*)\b\s+\(\{\{Sprache\|Deutsch\}\}\)\s+==\n===\s+\{\{Wortart\|Substantiv.*?\}\},\s+\{\{(m|f|n|mf|fm)\}\}.*")
+    german_word_regex = re.compile(r"==\s+\b(.*)\b\s+\(\{\{Sprache\|Deutsch\}\}\)\s+==\n===\s+\{\{Wortart\|Substantiv.*?\}\},\s+\{\{([mfn]{1,3})\}\}.*")
     word_and_genders = re.findall(german_word_regex, words)
 
     with open(Path(OUTFILE).expanduser(), 'w', newline='') as csvfile:
